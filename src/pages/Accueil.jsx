@@ -3,7 +3,7 @@ import FeatureItem from "../components/FeatureItem";
 
 function Accueil() {
   return (
-    <div>
+    <>
       <Banner
         title={"Features"}
         subtitles={["No Fees.", "No minimum deposit", "High interest rates"]}
@@ -29,7 +29,7 @@ function Accueil() {
         is always safe."
         title="Security you can trust"
       />
-    </div>
+    </>
   );
 }
 

@@ -1,9 +1,9 @@
 // eslint-disable-next-line react/prop-types
 function Logo ({src, alt}) {
   return (
-    <div>
-      <img src={src} alt={alt} />
-    </div>
+    <>
+      <img className="main-nav-logo-image" src={src} alt={alt} />
+    </>
   );
 }
 

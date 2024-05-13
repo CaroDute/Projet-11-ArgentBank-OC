@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Accueil from "./pages/Accueil";
-import Sign from "./pages/Sign";
-import User from "./pages/User";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Accueil from "./src/pages/Accueil";
+import Login from "./src/pages/Login";
+import User from "./src/pages/User";
+import Header from "./src/components/Header";
+import Footer from "./src/components/Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="container">
+      <div>
         <Header />
         <Routes>
           <Route path="/" element={<Accueil />} />
-          <Route path="/Sign" element={<Sign />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/User" element={<User />} />
         </Routes>
         <Footer />

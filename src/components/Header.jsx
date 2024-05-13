@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function Header() {
   return (
     <nav className="main-nav">
-      <NavLink to="/" className="main-nav-logo">
+      <NavLink to="/">
         <Logo
           src="/img/argentBankLogo.png"
           alt="Argent Bank Logo"
@@ -13,7 +13,7 @@ function Header() {
         <h1 className="sr-only">Argent Bank</h1>
       </NavLink>
       <div>
-        <NavLink to="/Sign" className="main-nav-item">
+        <NavLink to="/Login" className="main-nav-item">
           <i className="fa fa-user-circle"></i>
           Sign In
         </NavLink>
