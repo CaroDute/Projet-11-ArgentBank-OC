@@ -165,7 +165,9 @@ body {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+  border: 0;
 }
+
 
 .sign-in-content {
   box-sizing: border-box;
