@@ -1,6 +1,8 @@
 import TransactionCard from "../components/TransactionCard";
 
 function User() {
+
+
   const transactions = [
     {
       title: "Argent Bank Checking (x8349)",

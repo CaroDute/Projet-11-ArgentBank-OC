@@ -1,7 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
 import Logo from "./Logo";
 import { NavLink } from "react-router-dom";
+import { logout, checkLocalStorageToken } from "../features/login/authSlice";
+import { useEffect } from "react";
 
 function Header() {
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  const isAuthenticated = auth.isAuthenticated;
+
+  useEffect(() => {
+    // Vérification du token en local
+    dispatch(checkLocalStorageToken()); // Si token récupéré alors isAuthenticated
+  }, [dispatch]);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <nav className="main-nav">
       <NavLink to="/">
@@ -13,10 +29,21 @@ function Header() {
         <h1 className="sr-only">Argent Bank</h1>
       </NavLink>
       <div>
-        <NavLink to="/Login" className="main-nav-item">
-          <i className="fa fa-user-circle"></i>
-          Sign In
-        </NavLink>
+        {isAuthenticated ? (
+          <>
+            <NavLink to="/User" className="main-nav-item">
+              <i className="fa fa-user-circle"></i>
+            </NavLink>
+            <NavLink onClick={handleLogout} to="/" className="main-nav-item">
+              <i className="fa fa-sign-out"></i> Sign Out
+            </NavLink>
+          </>
+        ) : (
+          <NavLink to="/Login" className="main-nav-item">
+            <i className="fa fa-user-circle"></i>
+            Sign In
+          </NavLink>
+        )}
       </div>
     </nav>
   );

@@ -1,7 +1,8 @@
 import Banner from "../components/Banner";
 import FeatureItem from "../components/FeatureItem";
 
-function Accueil() {
+function Accueil() { 
+  
   return (
     <>
       <Banner
