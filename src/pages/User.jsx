@@ -1,10 +1,9 @@
+import { Navigate } from "react-router-dom";
 import TransactionCard from "../components/TransactionCard";
 import { useSelector } from "react-redux";
 
 function User() {
-  
-const auth = useSelector((state) => state.auth);
-
+  const auth = useSelector((state) => state.auth);
 
   const transactions = [
     {
@@ -28,17 +27,23 @@ const auth = useSelector((state) => state.auth);
   ];
 
   return (
-    <main className="main bg-dark">
-      <div className="header">
-        <h1>
-          Welcome back
-          <br />
-          {auth.firstName} {auth.lastName}
-        </h1>
-        <button className="edit-button">Edit Name</button>
-      </div>
-      <TransactionCard transactions={transactions} />
-    </main>
+    <>
+      {!auth.isAuthenticated ? (
+        <Navigate to="/login" />
+      ) : (
+        <main className="main bg-dark">
+          <div className="header">
+            <h1>
+              Welcome back
+              <br />
+              {auth.firstName} {auth.lastName}
+            </h1>
+            <button className="edit-button">Edit Name</button>
+          </div>
+          <TransactionCard transactions={transactions} />
+        </main>
+      )}
+    </>
   );
 }
 

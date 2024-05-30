@@ -29,8 +29,6 @@ export const login = (authInfos) => async (dispatch) => {
 export const profile = () => async (dispatch, getState) => {
   const state = getState();
   const token = state.auth.token;
-  console.log("Token:", token);
-
   try {
     const response = await axios.post(
       "http://localhost:3001/api/v1/user/profile",
