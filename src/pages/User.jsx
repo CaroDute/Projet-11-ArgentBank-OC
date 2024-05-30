@@ -1,14 +1,9 @@
 import TransactionCard from "../components/TransactionCard";
-import { useDispatch, useSelector } from "react-redux";
-import { profile } from "../features/login/authActions";
+import { useSelector } from "react-redux";
 
 function User() {
-
-  const dispatch = useDispatch()
-  const essaiAPI = () => {
-    dispatch(profile())
-  }
-  const auth = useSelector((state) => state.auth);
+  
+const auth = useSelector((state) => state.auth);
 
 
   const transactions = [
@@ -38,13 +33,11 @@ function User() {
         <h1>
           Welcome back
           <br />
-          Tony Jarvis!
+          {auth.firstName} {auth.lastName}
         </h1>
         <button className="edit-button">Edit Name</button>
       </div>
       <TransactionCard transactions={transactions} />
-      <button onClick={essaiAPI}>Essai API</button>
-      <p>{auth.firstName}</p>
     </main>
   );
 }

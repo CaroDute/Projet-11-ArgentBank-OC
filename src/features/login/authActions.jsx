@@ -29,7 +29,7 @@ export const login = (authInfos) => async (dispatch) => {
 export const profile = () => async (dispatch, getState) => {
   const state = getState();
   const token = state.auth.token;
-  console.log('Token:', token);
+  console.log("Token:", token);
 
   try {
     const response = await axios.post(
@@ -45,6 +45,7 @@ export const profile = () => async (dispatch, getState) => {
     dispatch(
       loginSuccess({
         firstName: response.data.body.firstName,
+        lastName: response.data.body.lastName,
       })
     );
   } catch (error) {
