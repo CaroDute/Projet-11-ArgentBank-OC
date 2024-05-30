@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../features/login/authActions";
+import { login, profile } from "../features/login/authActions";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -17,11 +17,13 @@ function Login() {
     dispatch(login({ username, password }));
   };
 
+ 
   useEffect(() => {
     if (auth.token && !auth.error) {
       navigate('/User')
+      dispatch(profile())
     }
-  })
+  }, [auth, dispatch, navigate])
 
 
   return (
