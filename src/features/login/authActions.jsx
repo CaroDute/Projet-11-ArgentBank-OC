@@ -1,5 +1,5 @@
 import axios from "axios";
-import { loginSuccess, loginFailure } from "./authSlice";
+import { loginSuccess, loginFailure, editSuccess } from "./authSlice";
 
 export const login = (authInfos) => async (dispatch) => {
   // Requête API
@@ -41,9 +41,34 @@ export const profile = () => async (dispatch, getState) => {
       loginSuccess({
         firstName: response.data.body.firstName,
         lastName: response.data.body.lastName,
+        userName: response.data.body.userName,
       })
     );
   } catch (error) {
     console.error("Error:", error.response.data.message || error.message);
+  }
+};
+
+export const edit = (userName) => async (dispatch, getState) => {
+  const state = getState();
+  const token = state.auth.token;
+  try {
+    const response = await axios.put(
+      "http://localhost:3001/api/v1/user/profile",
+      {
+        userName: userName,
+      },
+      {
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    dispatch(editSuccess(response.data.body.userName));
+    console.log(response.data.body.userName);
+  } catch (error) {
+    console.error("Error:", error.response?.data?.message || error.message);
   }
 };

@@ -62,12 +62,17 @@ const authSlice = createSlice({
     },
 
     showEditUserName: (state) => {
-      state.showForm = true
+      state.showForm = true;
     },
 
     hideEditUserName: (state) => {
-      state.showForm = false
-    }
+      state.showForm = false;
+    },
+
+    editSuccess: (state, action) => {
+      console.log("New UserName:", action.payload.userName);
+      state.userName = action.payload.userName;
+    },
   },
 });
 
@@ -80,5 +85,6 @@ export const {
   profileSuccess,
   showEditUserName,
   hideEditUserName,
+  editSuccess,
 } = authSlice.actions;
 export default authSlice.reducer;

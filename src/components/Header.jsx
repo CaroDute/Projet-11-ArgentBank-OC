@@ -33,7 +33,7 @@ function Header() {
           <>
             <NavLink to="/User" className="main-nav-item">
               <i className="fa fa-user-circle"></i>
-              {auth.firstName}
+              {auth.userName}
             </NavLink>
             <NavLink onClick={handleLogout} to="/" className="main-nav-item">
               <i className="fa fa-sign-out"></i> Sign Out
