@@ -2,7 +2,6 @@ import axios from "axios";
 import { loginSuccess, loginFailure } from "./authSlice";
 
 export const login = (authInfos) => async (dispatch) => {
-  console.log("Auth Infos:", authInfos);
   // Requête API
   try {
     const response = await axios.post(
@@ -12,7 +11,6 @@ export const login = (authInfos) => async (dispatch) => {
         password: authInfos.password,
       }
     );
-    console.log("Response:", response.data, "token", response.data.body.token);
     // si requête ok envoi de l'action 'loginSuccess' avec le token reçu. Mise à jour de l'état avec le token.
     dispatch(
       loginSuccess({
@@ -39,7 +37,6 @@ export const profile = () => async (dispatch, getState) => {
         },
       }
     );
-    console.log("Response:", response.data);
     dispatch(
       loginSuccess({
         firstName: response.data.body.firstName,

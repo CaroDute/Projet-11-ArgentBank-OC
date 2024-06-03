@@ -3,7 +3,6 @@ import Logo from "./Logo";
 import { NavLink } from "react-router-dom";
 import { logout, checkLocalStorageToken } from "../features/login/authSlice";
 import { useEffect } from "react";
-import { profile } from "../features/login/authActions";
 
 function Header() {
   const dispatch = useDispatch();
@@ -13,7 +12,6 @@ function Header() {
   useEffect(() => {
     // Vérification du token en local
     dispatch(checkLocalStorageToken()); // Si token récupéré alors isAuthenticated
-    dispatch(profile())
   }, [dispatch]);
 
   const handleLogout = () => {
