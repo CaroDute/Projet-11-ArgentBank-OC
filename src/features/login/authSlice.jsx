@@ -10,6 +10,7 @@ const initialState = {
   firstName: null,
   lastName: null,
   userName: null,
+  showForm: false,
 };
 
 const authSlice = createSlice({
@@ -59,6 +60,14 @@ const authSlice = createSlice({
         state.token = null;
       }
     },
+
+    showEditUserName: (state) => {
+      state.showForm = true
+    },
+
+    hideEditUserName: (state) => {
+      state.showForm = false
+    }
   },
 });
 
@@ -69,5 +78,7 @@ export const {
   logout,
   checkLocalStorageToken,
   profileSuccess,
+  showEditUserName,
+  hideEditUserName,
 } = authSlice.actions;
 export default authSlice.reducer;

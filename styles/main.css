@@ -168,7 +168,6 @@ body {
   border: 0;
 }
 
-
 .sign-in-content {
   box-sizing: border-box;
   background-color: white;
@@ -293,4 +292,64 @@ body {
   .transaction-button {
     width: 200px;
   }
+}
+
+.form-edit-content {
+  width: 100%;
+  max-width: 250px;
+  margin-top: 20px;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.center-content h2 {
+  margin-bottom:0 ;
+}
+
+.input-edit-wrapper {
+  display: flex;
+  text-align: left;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  align-items: center;
+}
+
+.input-edit-wrapper label {
+  font-weight: bold;
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+.input-edit-wrapper input {
+  padding: 5px;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.form-edit-button {
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  border: 0;
+}
+
+.blocked {
+  background-color: rgb(185, 181, 181);
+  cursor: not-allowed;
 }

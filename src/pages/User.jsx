@@ -1,9 +1,18 @@
 import { Navigate } from "react-router-dom";
 import TransactionCard from "../components/TransactionCard";
-import { useSelector } from "react-redux";
+import FormEdit from "../components/FormEdit";
+import { useDispatch, useSelector } from "react-redux";
+import { showEditUserName } from "../features/login/authSlice"
 
 function User() {
   const auth = useSelector((state) => state.auth);
+  const showForm = useSelector((state) => state.auth.showForm)
+  const dispatch = useDispatch()
+
+  const handleSubmit = () => {
+    dispatch(showEditUserName())
+  };
+
 
   const transactions = [
     {
@@ -33,12 +42,25 @@ function User() {
       ) : (
         <main className="main bg-dark">
           <div className="header">
-            <h1>
-              Welcome back
-              <br />
-              {auth.firstName} {auth.lastName}
-            </h1>
-            <button className="edit-button">Edit Name</button>
+            {showForm ? (
+              <div className="center-content">
+                <div className="edit-user-info">
+                  <h2>Edit user info</h2>
+                </div>
+                <FormEdit />
+              </div>
+            ) : (
+              <>
+                <h1>
+                  Welcome back
+                  <br />
+                  {auth.firstName} {auth.lastName}
+                </h1>
+                <button onClick={handleSubmit} className="edit-button">
+                  Edit Name
+                </button>
+              </>
+            )}
           </div>
           <TransactionCard transactions={transactions} />
         </main>
