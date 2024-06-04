@@ -2,17 +2,16 @@ import { Navigate } from "react-router-dom";
 import TransactionCard from "../components/TransactionCard";
 import FormEdit from "../components/FormEdit";
 import { useDispatch, useSelector } from "react-redux";
-import { showEditUserName } from "../features/login/authSlice"
+import { showEditUserName } from "../features/login/authSlice";
 
 function User() {
   const auth = useSelector((state) => state.auth);
-  const showForm = useSelector((state) => state.auth.showForm)
-  const dispatch = useDispatch()
+  const showForm = useSelector((state) => state.auth.showForm);
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    dispatch(showEditUserName())
+    dispatch(showEditUserName());
   };
-
 
   const transactions = [
     {
@@ -54,7 +53,7 @@ function User() {
                 <h1>
                   Welcome back
                   <br />
-                  {auth.firstName} {auth.lastName}
+                  {auth.userName}
                 </h1>
                 <button onClick={handleSubmit} className="edit-button">
                   Edit Name

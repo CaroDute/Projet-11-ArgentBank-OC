@@ -66,8 +66,7 @@ export const edit = (userName) => async (dispatch, getState) => {
         },
       }
     );
-    dispatch(editSuccess(response.data.body.userName));
-    console.log(response.data.body.userName);
+    dispatch(editSuccess({ userName: response.data.body.userName }));
   } catch (error) {
     console.error("Error:", error.response?.data?.message || error.message);
   }

@@ -1,12 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { hideEditUserName } from "../features/login/authSlice";
 import { edit } from "../features/login/authActions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function FormEdit() {
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (auth.userName) {
+      setUsername(auth.userName);
+    }
+  }, [auth.userName]);
 
   const handleCancelClick = () => {
     dispatch(hideEditUserName());
@@ -14,8 +20,8 @@ function FormEdit() {
 
   const handleSaveClick = (e) => {
     e.preventDefault();
-    console.log("New username to update:", username);
     dispatch(edit(username));
+    dispatch(hideEditUserName());
   };
 
   return (
@@ -26,7 +32,7 @@ function FormEdit() {
           <input
             type="text"
             id="username"
-            value={auth.userName}
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>

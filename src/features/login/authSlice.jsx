@@ -70,7 +70,6 @@ const authSlice = createSlice({
     },
 
     editSuccess: (state, action) => {
-      console.log("New UserName:", action.payload.userName);
       state.userName = action.payload.userName;
     },
   },
