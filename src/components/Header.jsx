@@ -22,7 +22,7 @@ function Header() {
     <nav className="main-nav">
       <NavLink to="/">
         <Logo
-          src="/img/argentBankLogo.png"
+          src="/img/argentBankLogo.webp"
           alt="Argent Bank Logo"
           className="main-nav-logo-image"
         />
