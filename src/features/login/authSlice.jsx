@@ -29,8 +29,10 @@ const authSlice = createSlice({
       state.lastName = action.payload.lastName;
       state.userName = action.payload.userName;
 
+      // Si il n'y a pas déjà un token de stocker alors stocke le token
       if (!localStorage.getItem("token")) {
         localStorage.setItem("token", action.payload.token);
+        // Mise à jour de la valeur du token dans l'état redux
         state.token = action.payload.token;
       }
     },
@@ -61,10 +63,12 @@ const authSlice = createSlice({
       }
     },
 
+    // Afficher le formulaire d'edition du userName
     showEditUserName: (state) => {
       state.showForm = true;
     },
 
+    // Cacher le formulaire d'edition du userName
     hideEditUserName: (state) => {
       state.showForm = false;
     },

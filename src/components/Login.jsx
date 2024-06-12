@@ -17,14 +17,12 @@ function Login() {
     dispatch(login({ username, password }));
   };
 
- 
   useEffect(() => {
     if (auth.token && !auth.error) {
-      navigate('/User')
-      dispatch(profile())
+      navigate("/User");
+      dispatch(profile());
     }
-  }, [auth, dispatch, navigate])
-
+  }, [auth, dispatch, navigate]);
 
   return (
     <>

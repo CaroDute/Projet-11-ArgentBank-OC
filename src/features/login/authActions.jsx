@@ -25,6 +25,7 @@ export const login = (authInfos) => async (dispatch) => {
 };
 
 export const profile = () => async (dispatch, getState) => {
+  // Permet de récupérer le state donc le token 
   const state = getState();
   const token = state.auth.token;
   try {
@@ -50,6 +51,7 @@ export const profile = () => async (dispatch, getState) => {
 };
 
 export const edit = (userName) => async (dispatch, getState) => {
+  // Permet de récupérer le state donc le token 
   const state = getState();
   const token = state.auth.token;
   try {
